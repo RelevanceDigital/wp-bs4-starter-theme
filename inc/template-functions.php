@@ -121,7 +121,7 @@ function _s_lazy_image( $img_arr, $default = null, $classes = null, $fit = null 
 
 }
 
-/*
+/**
  * Function to convert img tags to make them lazyload
  */
 function _s_replace_image_lazy( $content ) {
@@ -153,7 +153,7 @@ function _s_replace_image_lazy( $content ) {
 	return $dom->saveHTML();
 }
 
-/*
+/**
  * Bootstrap comment form
  */
 function _s_comment_form( $args ) {
