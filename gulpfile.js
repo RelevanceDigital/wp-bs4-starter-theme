@@ -103,7 +103,7 @@ gulp.task('browser-sync', function() {
 // Proxy
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "localhost:8072/hoch/"
+        proxy: "localhost:8080/"
     });
 });
 
