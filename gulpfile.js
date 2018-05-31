@@ -40,14 +40,14 @@ gulp.task('sass', function() {
     gulp.src('scss/**/*.scss')
         .pipe(sass({outputStyle: 'expanded'}))
         .on('error', gutil.log)
-        .pipe(sourcemaps.write('css'))
         .pipe(gulp.dest('css'))
         .pipe(browserSync.reload({stream:true}));
 
     gulp.src('scss/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sourcemaps.init())
         .on('error', gutil.log)
-        .pipe(sourcemaps.write('assets/css'))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('assets/css'))
         .pipe(browserSync.reload({stream:true}))
 });
