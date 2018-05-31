@@ -161,7 +161,7 @@ function _s_comment_form( $args ) {
   <label for="comment">' . _x( 'Comment', 'noun' ) . '</label>
   <textarea class="form-control" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
   </div>';
-	$args['class_submit']  = 'btn btn-outline-primary'; // since WP 4.1
+	$args['class_submit']  = 'btn btn-primary'; // since WP 4.1
 
 	return $args;
 }
