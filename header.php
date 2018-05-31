@@ -65,4 +65,10 @@
             </div>
         </div>
 
+        <?php if ( function_exists( 'yoast_breadcrumb' ) ) { ?>
+            <div class="container">
+                <?php yoast_breadcrumb( '<div id="breadcrumbs" class="breadcrumbs">', '</div>' ); ?>
+            </div>
+        <?php } ?>
+
 	<div id="content" class="site-content">
