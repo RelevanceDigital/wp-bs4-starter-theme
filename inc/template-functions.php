@@ -170,6 +170,12 @@ add_filter( 'comment_form_defaults', '_s_comment_form' );
 
 function _s_comment_form_fields( $fields ) {
 
+	$commenter = wp_get_current_commenter();
+	$req      = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+	$html5    = current_theme_supports( 'html5', 'comment-form' ) ? 1 : 0;
+	$consent  = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
+
 	$fields['author'] = '<div class="form-group comment-form-author">' . '<label for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 	                    '<input class="form-control" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>';
 	$fields['email']  = '<div class="form-group comment-form-email"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
