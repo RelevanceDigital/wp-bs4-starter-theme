@@ -1,4 +1,4 @@
-A WordPress Theme Based on_s and Bootstrap 4
+A WordPress Theme Based on _s and Bootstrap 4
 ===
 
 A basic Bootstrap 4 Wordpress theme based on [underscores](https://underscores.me/).
