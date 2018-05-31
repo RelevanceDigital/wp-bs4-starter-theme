@@ -1,15 +1,16 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var rename = require('gulp-rename');
-var replace = require('gulp-replace');
-var insertLines = require('gulp-insert-lines');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
-var imagemin = require('gulp-imagemin');
-var imageminPngquant = require('imagemin-jpeg-recompress');
-var imageminJpegRecompress = require('imagemin-jpeg-recompress');
-var browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const insertLines = require('gulp-insert-lines');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const sourcemaps = require('gulp-sourcemaps');
+const imagemin = require('gulp-imagemin');
+const imageminPngquant = require('imagemin-jpeg-recompress');
+const imageminJpegRecompress = require('imagemin-jpeg-recompress');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
 
 gulp.task('install', function() {
     gulp.src('node_modules/bootstrap/scss/_variables.scss')
@@ -39,12 +40,20 @@ gulp.task('log', function() {
 gulp.task('sass', function() {
     gulp.src('scss/**/*.scss')
         .pipe(sass({outputStyle: 'expanded'}))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .on('error', gutil.log)
         .pipe(gulp.dest('css'))
         .pipe(browserSync.reload({stream:true}));
 
     gulp.src('scss/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(sourcemaps.init())
         .on('error', gutil.log)
         .pipe(sourcemaps.write('./'))

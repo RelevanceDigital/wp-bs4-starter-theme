@@ -6,7 +6,6 @@
   "dependencies": {
     "bootstrap": "^4.1.1",
     "browser-sync": "^2.24.4",
-    "gulp-imagemin": "^4.1.0",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.1.0",
     "lazysizes": "^4.0.2",
@@ -25,16 +24,18 @@
     "gulp-rename": "latest",
     "gulp-replace": "latest",
     "gulp-insert-lines": "latest",
-    "gulp-sourcemaps": "latest"
+    "gulp-sourcemaps": "latest",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-imagemin": "^4.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/dataflowch/tpl-wp-bs4.git"
+    "url": "git+ssh://github.com/robwent/wp-bs4-starter-theme.git"
   },
   "author": "Robert Went",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/dataflowch/tpl-wp-bs4#readme"
+  "homepage": "https://github.com/robwent/wp-bs4-starter-theme"
 }
