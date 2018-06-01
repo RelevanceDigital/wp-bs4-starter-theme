@@ -1,0 +1,32 @@
+.main-navigation {
+  .navbar-nav {
+
+    .dropdown {
+
+      //Touch behaviour, uses js touch detection to add classes
+      &.show {
+        @include media-breakpoint-up(lg) {
+          .dropdown-toggle {
+            &:after {
+              display: block;
+            }
+          }
+        }
+
+        > .dropdown-menu {
+          display: block;
+        }
+      }
+
+      //We need to override the hover behaviour
+      //as we have removed the data-toggle attribute to make top level items work
+      &:hover {
+        > .dropdown-menu {
+          display: block;
+        }
+      }
+
+    }
+
+  }
+}
