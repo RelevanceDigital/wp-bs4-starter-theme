@@ -41,11 +41,11 @@ Then, update the stylesheet header in `style.css`, the links in `footer.php` wit
 
 ## Styles
 
-Running `gulp install` copies the main bootstrap.scss file from `node_modules` into the scss folder. It replaces the paths to imported files and adds a `_custom.scss` file to override default variables.
+Running `gulp install` copies the main bootstrap.scss file from `node_modules` into the scss folder. It replaces the paths to imported files and imports `_custom.scss` to override default variables.
 
 The original variables file is also copied into the `scss` folder as `_variables-reference.scss`.
 
-`style.scss` is created which imports `bootstrap.scss`. **This is the file to add your custom scss to.**
+`style.scss` imports `bootstrap.scss`. **This is the file to add your custom scss to.**
 
 When running `gulp`, any changes to files in the `scss` folder will regenerate the compiled css files in `assets/css` (compressed) and `css` (nested).
 
