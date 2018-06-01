@@ -6,6 +6,7 @@ A basic Bootstrap 4 Wordpress theme based on [underscores](https://underscores.m
 - Underscores layouts are bootstrapped.
 - Core output is filtered to use bootstrap classes (Comment/search form etc).
 - Nav walker for bootstrapped menu included.
+- Simple nav walker (For single level menus without excessive markup).
 - Comment walker for bootstrapped comments included.
 - Includes gulp file to watch/compile/compress scss, js and images.
 - Uses [browserSync](https://browsersync.io/) to reload browsers after file changes.
