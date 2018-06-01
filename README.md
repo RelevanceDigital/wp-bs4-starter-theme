@@ -34,7 +34,7 @@ Then, update the stylesheet header in `style.css`, the links in `footer.php` wit
 
 **Installation**
 
-1. Edit `gulpfile.js` and update the browserSync proxy location to you localhost path
+1. Edit `gulpfile.js` and update the browserSync proxy location to your localhost path
 2. Run `npm install` to install dependencies
 3. Run `gulp install` to copy library scss files into the main scss folder
 4. Run `gulp` to generate compiled assets and watch folders
@@ -57,7 +57,7 @@ All styles are enqueued in `functions.php`.
 
 ## JavaScript
 
-Adding or editing files in the `js` folder whilst runnning `gulp` will compile them to the `assets/js` folder.
+Adding or editing files in the `js` folder whilst running `gulp` will compile them to the `assets/js` folder.
 
 Bootstrap and Fontawesome are loaded from a cdn.
 
@@ -76,7 +76,7 @@ Custom functions are added in `inc/template-functions.php`.
 This contains modified versions of Underscores functions as well as new ones:
  
 - Replacing images in content with lazyloading ones.
-- Custom lazy sizes function to generate lazyloaded srcset tags which don't include the default square thubmnail images.
+- Custom lazy sizes function to generate lazyloaded srcset tags which don't include the default square thumbnail images.
 - Overrides for comment form styling.
 - Various filters and actions to remove some standard output from the head of the page.
 - Overrides for some common plugins to clean up their output.
