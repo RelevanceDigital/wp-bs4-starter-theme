@@ -40,6 +40,21 @@ Then, update the stylesheet header in `style.css`, the links in `footer.php` wit
 3. Run `gulp install` to copy library scss files into the main scss folder
 4. Run `gulp` to generate compiled assets and watch folders
 
+**Enable Errors**
+
+Whilst in development, it's best practice to enable error messages so that issues can be fixed as they arise.
+
+Edit the wp-config.php file in the root of your site and modify the debug lines to:
+
+
+    //define('WP_DEBUG', false);
+    
+    define('WP_DEBUG', true);
+    define('WP_DEBUG_LOG', true);
+    define('WP_DEBUG_DISPLAY', true);
+    @ini_set('display_errors', 1);
+
+
 ## Styles
 
 Running `gulp install` copies the main bootstrap.scss file from `node_modules` into the scss folder. It replaces the paths to imported files and imports `_custom.scss` to override default variables.
