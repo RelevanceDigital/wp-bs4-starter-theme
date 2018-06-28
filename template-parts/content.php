@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php get_template_part( 'template-parts/schema/NewsArticle' ); ?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
