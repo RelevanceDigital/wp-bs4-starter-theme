@@ -61,7 +61,7 @@ Running `gulp install` copies the main bootstrap.scss file from `node_modules` i
 
 The original variables file is also copied into the `scss` folder as `_variables-reference.scss`.
 
-`style.scss` imports `bootstrap.scss`. **This is the file to add your custom scss to.**
+`style.scss` imports `bootstrap.scss`. **style.scss is the file to add your custom scss to.**
 
 When running `gulp`, any changes to files in the `scss` folder will regenerate the compiled css files in `assets/css` (compressed) and `css` (nested).
 
