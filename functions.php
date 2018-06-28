@@ -45,6 +45,7 @@ if ( ! function_exists( '_s_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', '_s' ),
+			'menu-2' => esc_html__( 'Footer', '_s' ),
 		) );
 
 		/*
@@ -161,6 +162,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Bootstrap navwalker.
  */
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+
+/**
+ * Simple navwalker.
+ */
+require get_template_directory() . '/inc/wp_simple_navwalker.php';
 
 /**
  * Bootstrap commentwalker.
