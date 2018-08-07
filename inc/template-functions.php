@@ -243,7 +243,7 @@ remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 
 //Remove All Yoast HTML Comments
 //https://gist.github.com/paulcollett/4c81c4f6eb85334ba076
-function go_yoast() {
+function _s_go_yoast() {
 	if ( defined( 'WPSEO_VERSION' ) ) {
 		add_action( 'get_header', function () {
 			ob_start( function ( $o ) {
@@ -256,14 +256,14 @@ function go_yoast() {
 	}
 }
 
-add_action( 'plugins_loaded', 'go_yoast' );
+add_action( 'plugins_loaded', '_s_go_yoast' );
 
 //Move the yoast seo stuff to the bottom of the admin pages
-function yoasttobottom() {
+function _s_yoast_to_bottom() {
 	return 'low';
 }
 
-add_filter( 'wpseo_metabox_prio', 'yoasttobottom' );
+add_filter( 'wpseo_metabox_prio', '_s_yoast_to_bottom' );
 
 //cf7
 //add_filter( 'wpcf7_load_js', '__return_false' );
