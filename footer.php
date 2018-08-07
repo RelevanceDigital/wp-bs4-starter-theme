@@ -9,6 +9,7 @@
  * @package _s
  */
 
+$before_closing_body_code = get_theme_mod('_s_before_closing_body');
 ?>
 
 	</div><?php // #content ?>
@@ -32,5 +33,8 @@
 
 <?php wp_footer(); ?>
 
+<?php if ($before_closing_body_code) {
+	echo $before_closing_body_code;
+} ?>
 </body>
 </html>

@@ -15,6 +15,42 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	//Section for custom code
+	$wp_customize->add_section('_s_custom_code', array(
+		'title' => __( 'Custom Code', '_s' ),
+		'description' => '',
+		'priority' => 210,
+	));
+	//Fields for custom code
+	$wp_customize->add_setting('_s_after_opening_head');
+	$wp_customize->add_control( '_s_after_opening_head', array(
+			'type' => 'textarea',
+			'section' => '_s_custom_code', // Required, core or custom.
+			'label' => __( 'After Opening <head> Tag', '_s' ),
+		)
+	);
+	$wp_customize->add_setting('_s_before_closing_head');
+	$wp_customize->add_control( '_s_before_closing_head', array(
+			'type' => 'textarea',
+			'section' => '_s_custom_code', // Required, core or custom.
+			'label' => __( 'Before Closing </head> Tag', '_s' ),
+		)
+	);
+	$wp_customize->add_setting('_s_after_opening_body');
+	$wp_customize->add_control( '_s_after_opening_body', array(
+			'type' => 'textarea',
+			'section' => '_s_custom_code', // Required, core or custom.
+			'label' => __( 'After Opening <body> Tag', '_s' ),
+		)
+	);
+	$wp_customize->add_setting('_s_before_closing_body');
+	$wp_customize->add_control( '_s_before_closing_body', array(
+			'type' => 'textarea',
+			'section' => '_s_custom_code', // Required, core or custom.
+			'label' => __( 'Before Closing </body> Tag', '_s' ),
+		)
+	);
+
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',

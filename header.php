@@ -9,17 +9,29 @@
  * @package _s
  */
 
+$after_opening_head_code = get_theme_mod('_s_after_opening_head');
+$before_closing_head_code = get_theme_mod('_s_before_closing_head');
+$after_opening_body_code = get_theme_mod('_s_after_opening_body');
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+    <?php if ($after_opening_head_code) {
+        echo $after_opening_head_code;
+    } ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<?php wp_head(); ?>
+	<?php if ($before_closing_head_code) {
+		echo $before_closing_head_code;
+	} ?>
 </head>
 
 <body <?php body_class(); ?>>
+<?php if ($after_opening_body_code) {
+	echo $after_opening_body_code;
+} ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
