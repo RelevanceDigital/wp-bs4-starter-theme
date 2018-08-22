@@ -79,13 +79,13 @@ gulp.task('php', function() {
 });
 
 gulp.task('imagesreduced', function () {
-    return gulp.src('images/**/*.{png,jpeg,jpg,svg, gif}')
+    return gulp.src('images/**/*.{png,jpeg,jpg,svg,gif}')
         .pipe(imagemin())
         .pipe(gulp.dest('assets/images'));
 });
 
 gulp.task('imagescompress', function () {
-    return gulp.src('images/**/*.{png,jpeg,jpg,svg, gif}')
+    return gulp.src('images/**/*.{png,jpeg,jpg,svg,gif}')
         .pipe(imagemin([ //override the default by setting our own
             //because we overrode, we want to call all the defaults that were called behind the scene
             imagemin.optipng(), //call default for imagemin
