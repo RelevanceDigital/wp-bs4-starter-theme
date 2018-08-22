@@ -112,7 +112,7 @@ gulp.task('browser-sync', function() {
 // Proxy
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "localhost:8080/"
+        proxy: "localhost:8080/wpbs4/"
     });
 });
 
@@ -121,7 +121,7 @@ gulp.task('watch', function() {
     gulp.watch('js/*.js', ['js']);
     gulp.watch('scss/**/*.scss', ['sass']);
     gulp.watch('**/*.php', ['php']);
-    gulp.watch('images/**/*.{png,jpeg,jpg,svg,gif}', ['imagescompress'])
+    gulp.watch('images/**/*.{png,jpeg,jpg,svg,gif}', ['imagesreduced'])
 });
 
-gulp.task('default', ['js', 'sass', 'browser-sync', 'watch']);
+gulp.task('default', ['js', 'sass', 'imagesreduced', 'browser-sync', 'watch']);
