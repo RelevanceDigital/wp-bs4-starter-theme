@@ -52,3 +52,26 @@
     width: 50%;
   }
 }
+
+//Numbered pagination
+//Uncomment if you want to use the _s_pagination_links() function
+/*
+.page-numbers {
+  @extend .pagination;
+  @extend .justify-content-center;
+
+  li {
+    @extend .page-item;
+
+    .page-numbers {
+      @extend .page-link;
+
+      &.current {
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+}
+*/
