@@ -144,6 +144,11 @@ function _s_replace_image_lazy( $content ) {
 		$class = $img->getAttribute( 'class' );
 		$class = $class . ' lazyload';
 
+        // Add any missing alts
+        if (!$img->getAttribute( 'alt' )){
+            $img->setAttribute( 'alt', '' );
+        }
+
 		// Swap them
 		$img->removeAttribute( 'src' );
 		$img->setAttribute( 'data-src', $src );
