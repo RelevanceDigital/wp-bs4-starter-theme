@@ -1,0 +1,8 @@
+/* Import any webfonts here
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Libre+Baskerville');
+*/
+@import url('../assets/css/style.css');
+
+html {
+    padding: 1rem;
+}

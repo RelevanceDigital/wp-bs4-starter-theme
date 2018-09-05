@@ -217,6 +217,35 @@ function _s_comment_form_fields( $fields ) {
 add_filter( 'comment_form_default_fields', '_s_comment_form_fields' );
 
 /**
+ * Editor stylesheet
+ */
+function _s_load_editor_style() {
+	add_editor_style( get_template_directory_uri() . '/css/editor-style.css' );
+}
+add_action( 'after_setup_theme', '_s_load_editor_style' );
+
+/**
+ * Tiny MCE Editor changes
+ */
+/*
+function _s_mce_buttons( $buttons ) {
+	array_unshift( $buttons, 'fontselect' ); // Add Font Select
+	array_unshift( $buttons, 'fontsizeselect' ); // Add Font Size Select
+	
+	return $buttons;
+}
+add_filter( 'mce_buttons_2', '_s_mce_buttons' );
+
+function _s_mce( $settings ) {
+	$settings['fontsize_formats'] = ".8rem .875rem 1rem 1.25rem 1.5rem 1.75rem 2rem 3.5rem 4.5rem 5.5rem 6rem";
+	$settings['font_formats'] = 'Lato=Lato,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;Libre Baskerville=Libre Baskerville,Georgia,Times New Roman,Times,serif;Monospace=SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;';
+
+	return $settings;
+}
+add_filter( 'tiny_mce_before_init', '_s_mce' );
+*/
+
+/**
  * Stuff to remove default code
  */
 
