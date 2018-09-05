@@ -34,7 +34,7 @@
 
 	<div class="entry-content">
 		<?php
-		echo _s_replace_image_lazy(get_the_content( sprintf(
+		the_content( sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
 				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', '_s' ),
@@ -45,7 +45,7 @@
 				)
 			),
 			get_the_title()
-		) ) );
+		) );
 
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_s' ),

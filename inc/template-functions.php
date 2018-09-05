@@ -159,6 +159,11 @@ function _s_replace_image_lazy( $content ) {
 }
 
 /**
+ * Filter the content to lazyload images
+ */
+add_filter('the_content', '_s_replace_image_lazy');
+
+/**
  * Numbered pagination
  */
 function _s_pagination_links() {
