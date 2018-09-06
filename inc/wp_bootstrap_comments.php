@@ -161,7 +161,7 @@ class WP_Bootstrap_Comments_Walker extends Walker_Comment {
         $type = get_comment_type();
 
         $comment_classes = array();
-        $comment_classes[] = 'media';
+        $comment_classes[] = 'd-flex';
 
         // if it's a parent
         if ( $this->has_children ) {
@@ -183,10 +183,10 @@ class WP_Bootstrap_Comments_Walker extends Walker_Comment {
 ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $class_str, $comment ); ?>>
 
-            <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+            <article id="div-comment-<?php comment_ID(); ?>" class="comment-body media">
 
                 <?php if ( 0 != $args['avatar_size'] && 'pingback' !== $type && 'trackback' !== $type ) { ?>
-                    <div class="media-left">
+                    <div class="mr-3">
                         <?php echo $this->get_comment_author_avatar( $comment, $args ); ?>
                     </div>
                 <?php }; ?>
