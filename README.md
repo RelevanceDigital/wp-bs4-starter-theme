@@ -16,7 +16,6 @@ A basic Bootstrap 4 Wordpress theme based on [underscores](https://underscores.m
 ## Requirements
 
  - node/npm
- - gulp installed globally (`npm install -g gulp`)
  
 
 Getting Started
