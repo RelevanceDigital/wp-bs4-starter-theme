@@ -136,7 +136,7 @@ function _s_replace_image_lazy( $content ) {
 	$dom->substituteEntities = true;
 
 	// Feed the content to the dom object
-	$dom->loadHTML( mb_convert_encoding( wpautop($content), 'HTML-ENTITIES', 'UTF-8' ) );
+	@$dom->loadHTML( mb_convert_encoding( wpautop($content), 'HTML-ENTITIES', 'UTF-8' ) );
 
 	foreach ( $dom->getElementsByTagName( 'img' ) as $img ) {
 
