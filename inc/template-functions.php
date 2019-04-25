@@ -306,7 +306,7 @@ function _s_go_yoast() {
 	if ( defined( 'WPSEO_VERSION' ) ) {
 		add_action( 'get_header', function () {
 			ob_start( function ( $o ) {
-				return preg_replace( '/\n?<.*?yoast.*?>/mi', '', $o );
+				return preg_replace( '/\n?<.*?Yoast SEO plugin.*?>/mi', '', $o );
 			} );
 		} );
 		add_action( 'wp_head', function () {
