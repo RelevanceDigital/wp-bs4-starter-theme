@@ -67,7 +67,7 @@ gulp.task('js', function() {
         'node_modules/slick-carousel/**/*.min.js',
         'js/*.js',
     ])
-        .pipe(uglify())
+        .pipe(uglify({compress: { unused: false } }))
         .on('error', gutil.log)
         .pipe(gulp.dest('assets/js'))
         .pipe(browserSync.reload({stream:true}))
