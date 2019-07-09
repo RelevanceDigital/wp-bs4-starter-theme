@@ -4,7 +4,7 @@
   "description": "A WordPress theme based on Underscores and Bootstrap 4",
   "main": "index.php",
   "dependencies": {
-    "bootstrap": "^4.1.3",
+    "bootstrap": "^4.3.1",
     "browser-sync": "^2.24.4",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.1.0",
@@ -33,9 +33,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/robwent/wp-bs4-starter-theme.git"
+    "url": "git+ssh://github.com/RelevanceDigital/wp-bs4-starter-theme.git"
   },
   "author": "Robert Went",
   "license": "MIT",
-  "homepage": "https://github.com/RelevanceWebMarketing/wp-bs4-starter-theme"
+  "homepage": "https://github.com/RelevanceDigital/wp-bs4-starter-theme"
 }
