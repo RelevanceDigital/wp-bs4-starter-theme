@@ -25,6 +25,49 @@ function _s_customize_register( $wp_customize ) {
 		)
 	);
 
+	//Section for social networks
+	$wp_customize->add_section('_s_social_networks', array(
+		'title' => __( 'Social Networks', '_s' ),
+		'description' => '',
+		'priority' => 80,
+	));
+
+	//Social network links
+	$wp_customize->add_setting( '_s_facebook' );
+	$wp_customize->add_control( '_s_facebook', array(
+		'type'    => 'url',
+		'section' => '_s_social_networks',
+		'label'   => __( 'Facebook Link', '_s' ),
+	) );
+	$wp_customize->add_setting( '_s_twitter' );
+	$wp_customize->add_control( '_s_twitter', array(
+			'type'    => 'url',
+			'section' => '_s_social_networks',
+			'label'   => __( 'Twitter Link', '_s' ),
+		)
+	);
+	$wp_customize->add_setting( '_s_linkedin' );
+	$wp_customize->add_control( '_s_linkedin', array(
+			'type'    => 'url',
+			'section' => '_s_social_networks',
+			'label'   => __( 'Linkedin Link', '_s' ),
+		)
+	);
+	$wp_customize->add_setting( '_s_youtube' );
+	$wp_customize->add_control( '_s_youtube', array(
+			'type'    => 'url',
+			'section' => '_s_social_networks',
+			'label'   => __( 'YouTube Link', '_s' ),
+		)
+	);
+	$wp_customize->add_setting( '_s_instagram' );
+	$wp_customize->add_control( '_s_instagram', array(
+			'type'    => 'url',
+			'section' => '_s_social_networks',
+			'label'   => __( 'Instagram Link', '_s' ),
+		)
+	);
+
 	//Section for custom code
 	$wp_customize->add_section('_s_custom_code', array(
 		'title' => __( 'Custom Code', '_s' ),
