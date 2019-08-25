@@ -15,6 +15,16 @@ function _s_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	//Additional options for site identity panel
+	$wp_customize->add_setting( '_s_copyright' );
+	$wp_customize->add_control( '_s_copyright', array(
+			'type'    => 'text',
+			'section' => 'title_tagline',
+			'label'   => __( 'Copyright Text', '_s' ),
+			'description' => __( 'Add {year} to replace with the current year', '_s' ),
+		)
+	);
+
 	//Section for custom code
 	$wp_customize->add_section('_s_custom_code', array(
 		'title' => __( 'Custom Code', '_s' ),
