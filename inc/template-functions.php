@@ -172,8 +172,9 @@ function _s_replace_image_lazy( $content ) {
 
 /**
  * Filter the content to lazyload images
+ * Only use this if you don't use Gutenberg
  */
-add_filter('the_content', '_s_replace_image_lazy');
+//add_filter('the_content', '_s_replace_image_lazy');
 
 /**
  * Numbered pagination
