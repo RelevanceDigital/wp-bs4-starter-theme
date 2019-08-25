@@ -56,5 +56,5 @@
 
 	<footer class="entry-footer">
 		<?php _s_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	</footer>
 </article>
