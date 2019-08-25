@@ -8,6 +8,7 @@ A basic Bootstrap 4 Wordpress theme based on [underscores](https://underscores.m
 - Nav walker for bootstrapped menu included.
 - Simple nav walker (For single level menus without excessive markup).
 - Comment walker for bootstrapped comments included.
+- Includes example file for a Gutenberg block created with Advanced Custom Fields.
 - Includes gulp file to watch/compile/compress scss, js and images.
 - Uses [browserSync](https://browsersync.io/) to reload browsers after file changes.
 - Includes [lazysizes](https://github.com/aFarkas/lazysizes) for lazyloading srcset images (object-fit plugin enabled as an example).
@@ -16,6 +17,7 @@ A basic Bootstrap 4 Wordpress theme based on [underscores](https://underscores.m
 ## Requirements
 
  - node/npm
+ - Gulp installed globally: `npm install -g gulp`
  
 
 Getting Started
