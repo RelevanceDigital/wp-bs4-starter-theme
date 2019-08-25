@@ -278,6 +278,13 @@ require get_template_directory() . '/inc/wp_simple_navwalker.php';
 require get_template_directory() . '/inc/wp_bootstrap_comments.php';
 
 /**
+ * ACF Gutenberg blocks
+ */
+if ( function_exists('get_field') ) {
+	require get_template_directory() . '/inc/acf-blocks.php';
+}
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
