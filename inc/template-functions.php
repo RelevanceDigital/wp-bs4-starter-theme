@@ -68,30 +68,42 @@ add_filter( 'excerpt_length', '_s_excerpt_length' );
  */
 function _s_lazy_image( $img_arr, $default = null, $classes = null, $fit = null ) {
 	if ( ! is_array( $img_arr ) ) {
-		return;
+		return '';
 	}
 	//Get a list of available image sizes
 	$sizes = get_intermediate_image_sizes();
 	//Remove thumbnail and medium which are always first
 	unset( $sizes[0], $sizes[1] );
 
+	if ( is_admin() ) {
+		$src    = 'src="';
+		$srcset = 'srcset="';
+	} else {
+		$src    = 'data-src="';
+		$srcset = 'data-srcset="';
+	}
+
 	$tag = '<img ';
 	if ( isset( $default ) && isset( $img_arr['sizes'][ $default . '-width' ] ) ) {
-		$tag .= 'data-src="' . $img_arr['sizes'][ $default ] . '" ' . "\n";
+		$tag .= $src . $img_arr['sizes'][ $default ] . '" ' . "\n";
 	} elseif ( isset( $default ) && isset( $img_arr['sizes'][ $default ]['url'] ) ) {
-		$tag .= 'data-src="' . $img_arr['sizes'][ $default ]['url'] . '" ' . "\n";
+		$tag .= $src . $img_arr['sizes'][ $default ]['url'] . '" ' . "\n";
 	} else {
-		$tag .= 'data-src="' . $img_arr['url'] . '" ' . "\n";
+		$tag .= $src . $img_arr['url'] . '" ' . "\n";
 	}
-	//Add a blank image on pageload
-	$tag .= 'srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" ' . "\n";
+
+	if ( ! is_admin() ) {
+		//Add a blank image on pageload
+		$tag .= 'srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" ' . "\n";
+	}
+
 	//Now loop through the available sizes and add them with their widths, default first
 	if ( isset( $default ) && isset( $img_arr['sizes'][ $default . '-width' ] ) ) {
-		$tag .= 'data-srcset="' . $img_arr['sizes'][ $default ] . ' ' . $img_arr['sizes'][ $default . '-width' ] . 'w ' . $img_arr['sizes'][ $default . '-height' ] . 'h,' . "\n";
+		$tag .= $srcset . $img_arr['sizes'][ $default ] . ' ' . $img_arr['sizes'][ $default . '-width' ] . 'w ' . $img_arr['sizes'][ $default . '-height' ] . 'h,' . "\n";
 	} elseif ( isset( $default ) && isset( $img_arr['sizes'][ $default ]['width'] ) ) {
-		$tag .= 'data-srcset="' . $img_arr['sizes'][ $default ]['url'] . ' ' . $img_arr['sizes'][ $default ]['width'] . 'w ' . $img_arr['sizes'][ $default ]['height'] . 'h,' . "\n";
+		$tag .= $srcset . $img_arr['sizes'][ $default ]['url'] . ' ' . $img_arr['sizes'][ $default ]['width'] . 'w ' . $img_arr['sizes'][ $default ]['height'] . 'h,' . "\n";
 	} else {
-		$tag .= 'data-srcset="' . $img_arr['url'] . ' ' . $img_arr['width'] . 'w ' . $img_arr['height'] . 'h, ' . "\n";
+		$tag .= $srcset . $img_arr['url'] . ' ' . $img_arr['width'] . 'w ' . $img_arr['height'] . 'h, ' . "\n";
 	}
 	foreach ( $sizes as $key => $size ) {
 		//We only want to add a size if it's smaller than the original image
