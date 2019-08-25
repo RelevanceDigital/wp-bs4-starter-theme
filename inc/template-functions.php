@@ -64,76 +64,6 @@ function _s_excerpt_length( $length ) {
 add_filter( 'excerpt_length', '_s_excerpt_length' );
 
 /**
- * Return a responsive image tag without the cropped images from a wp image array
- */
-function _s_lazy_image( $img_arr, $default = null, $classes = null, $fit = null ) {
-	if ( ! is_array( $img_arr ) ) {
-		return '';
-	}
-	//Get a list of available image sizes
-	$sizes = get_intermediate_image_sizes();
-	//Remove thumbnail and medium which are always first
-	unset( $sizes[0], $sizes[1] );
-
-	if ( is_admin() ) {
-		$src    = 'src="';
-		$srcset = 'srcset="';
-	} else {
-		$src    = 'data-src="';
-		$srcset = 'data-srcset="';
-	}
-
-	$tag = '<img ';
-	if ( isset( $default ) && isset( $img_arr['sizes'][ $default . '-width' ] ) ) {
-		$tag .= $src . $img_arr['sizes'][ $default ] . '" ' . "\n";
-	} elseif ( isset( $default ) && isset( $img_arr['sizes'][ $default ]['url'] ) ) {
-		$tag .= $src . $img_arr['sizes'][ $default ]['url'] . '" ' . "\n";
-	} else {
-		$tag .= $src . $img_arr['url'] . '" ' . "\n";
-	}
-
-	if ( ! is_admin() ) {
-		//Add a blank image on pageload
-		$tag .= 'srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" ' . "\n";
-	}
-
-	//Now loop through the available sizes and add them with their widths, default first
-	if ( isset( $default ) && isset( $img_arr['sizes'][ $default . '-width' ] ) ) {
-		$tag .= $srcset . $img_arr['sizes'][ $default ] . ' ' . $img_arr['sizes'][ $default . '-width' ] . 'w ' . $img_arr['sizes'][ $default . '-height' ] . 'h,' . "\n";
-	} elseif ( isset( $default ) && isset( $img_arr['sizes'][ $default ]['width'] ) ) {
-		$tag .= $srcset . $img_arr['sizes'][ $default ]['url'] . ' ' . $img_arr['sizes'][ $default ]['width'] . 'w ' . $img_arr['sizes'][ $default ]['height'] . 'h,' . "\n";
-	} else {
-		$tag .= $srcset . $img_arr['url'] . ' ' . $img_arr['width'] . 'w ' . $img_arr['height'] . 'h, ' . "\n";
-	}
-	foreach ( $sizes as $key => $size ) {
-		//We only want to add a size if it's smaller than the original image
-		if ( isset( $img_arr['sizes'][ $size . '-width' ] ) && $img_arr['sizes'][ $size . '-width' ] < $img_arr['width'] ) {
-			$tag .= $img_arr['sizes'][ $size ] . ' ' . $img_arr['sizes'][ $size . '-width' ] . 'w, ' . "\n";
-		} elseif ( isset( $img_arr['sizes'][ $size ]['width'] ) && $img_arr['sizes'][ $size ]['width'] < $img_arr['width'] ) {
-			$tag .= $img_arr['sizes'][ $size ]['url'] . ' ' . $img_arr['sizes'][ $size ]['width'] . 'w, ' . "\n";
-		}
-	}
-	//Trim off the last comma and close the quote
-	$tag = rtrim( $tag, ",\n " ) . '" ' . "\n";
-	//We want the plugin in auto mode so will hardcode this bit
-	$tag .= 'data-sizes="auto" ' . "\n";
-	//If object-fit is set we need a data att to support ie
-	if ( isset( $fit ) && ( $fit === 'cover' || $fit === 'contain' ) ) {
-		$tag     .= 'data-parent-fit="' . $fit . '"' . "\n";
-		$classes = $classes . ' imagecontainer-img-' . $fit;
-	}
-	//Add the classes
-	$tag .= $classes ? 'class="lazyload ' . $classes . '"' . "\n" : 'class="lazyload"' . "\n";
-	//Add the alt
-	$tag .= 'alt="' . $img_arr['alt'] . '"' . "\n";
-	//Close the tag
-	$tag .= ' />';
-
-	return $tag;
-
-}
-
-/**
  * Function to convert img tags to make them lazyload
  */
 function _s_replace_image_lazy( $content ) {
@@ -177,26 +107,6 @@ function _s_replace_image_lazy( $content ) {
 //add_filter('the_content', '_s_replace_image_lazy');
 
 /**
- * Numbered pagination
- */
-function _s_pagination_links() {
-    global $wp_query;
-
-    $total_pages = $wp_query->max_num_pages;
-
-    if ($total_pages > 1){
-        $current_page = max(1, get_query_var('paged'));
-
-        echo paginate_links(array(
-            'base' => get_pagenum_link(1) . '%_%',
-            'format' => '/page/%#%',
-            'current' => $current_page,
-            'total' => $total_pages,
-        ));
-    }
-}
-
-/**
  * Bootstrap comment form
  */
 function _s_comment_form( $args ) {
@@ -233,14 +143,6 @@ function _s_comment_form_fields( $fields ) {
 }
 
 add_filter( 'comment_form_default_fields', '_s_comment_form_fields' );
-
-/**
- * Editor stylesheet
- */
-function _s_load_editor_style() {
-	add_editor_style( get_template_directory_uri() . '/css/editor-style.css' );
-}
-add_action( 'after_setup_theme', '_s_load_editor_style' );
 
 /**
  * Tiny MCE Editor changes

@@ -36,6 +36,102 @@ if ( ! function_exists( '_s_setup' ) ) :
 		add_theme_support( 'title-tag' );
 
 		/*
+		 * Enable support for Gutenberg
+		 *
+		 * @link https://developer.wordpress.org/block-editor/developers/themes/theme-support/
+		 */
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'editor-styles' );
+		//add_theme_support( 'dark-editor-style' );
+		//add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'responsive-embeds' );
+		add_theme_support( 'editor-color-palette', array(
+			array(
+				'name'  => __( 'White', '_s' ),
+				'slug'  => 'white',
+				'color' => '#ffffff',
+			),
+			array(
+				'name'  => __( 'Black', '_s' ),
+				'slug'  => 'black',
+				'color' => '#000000',
+			),
+			array(
+				'name'  => __( 'Blue', '_s' ),
+				'slug'  => 'blue',
+				'color' => '#007bff',
+			),
+			array(
+				'name'  => __( 'Indigo', '_s' ),
+				'slug'  => 'indigo',
+				'color' => '#6610f2',
+			),
+			array(
+				'name'  => __( 'Purple', '_s' ),
+				'slug'  => 'purple',
+				'color' => '#6f42c1',
+			),
+			array(
+				'name'  => __( 'Pink', '_s' ),
+				'slug'  => 'pink',
+				'color' => '#e83e8c',
+			),
+			array(
+				'name'  => __( 'Red', '_s' ),
+				'slug'  => 'red',
+				'color' => '#dc3545',
+			),
+			array(
+				'name'  => __( 'Orange', '_s' ),
+				'slug'  => 'orange',
+				'color' => '#fd7e14',
+			),
+			array(
+				'name'  => __( 'Yellow', '_s' ),
+				'slug'  => 'yellow',
+				'color' => '#ffc107',
+			),
+			array(
+				'name'  => __( 'Green', '_s' ),
+				'slug'  => 'green',
+				'color' => '#28a745',
+			),
+			array(
+				'name'  => __( 'Teal', '_s' ),
+				'slug'  => 'teal',
+				'color' => '#20c997',
+			),
+			array(
+				'name'  => __( 'Cyan', '_s' ),
+				'slug'  => 'cyan',
+				'color' => '#17a2b8',
+			),
+		) );
+
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+				'name' => __( 'Small', '_s' ),
+				'size' => 12,
+				'slug' => 'small'
+			),
+			array(
+				'name' => __( 'Normal', '_s' ),
+				'size' => 16,
+				'slug' => 'normal'
+			),
+			array(
+				'name' => __( 'Large', '_s' ),
+				'size' => 36,
+				'slug' => 'large'
+			),
+			array(
+				'name' => __( 'Huge', '_s' ),
+				'size' => 50,
+				'slug' => 'huge'
+			)
+		) );
+
+		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
@@ -142,6 +238,14 @@ function _s_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
+
+/**
+ * Editor stylesheet
+ */
+function _s_load_editor_style() {
+	add_editor_style( get_template_directory_uri() . '/assets/css/editor-style.css' );
+}
+add_action( 'after_setup_theme', '_s_load_editor_style' );
 
 /**
  * Implement the Custom Header feature.
