@@ -160,7 +160,7 @@ if ( ! function_exists( '_s_lazy_image' ) ) :
 	/**
 	 * Return a responsive image tag without the cropped images from a wp image array
 	 */
-	function _s_lazy_image( $img_arr, $default = null, $classes = null, $fit = null ) {
+	function _s_lazy_image( $img_arr, $default = null, $classes = null, $fit = null, $disable_lazy = false ) {
 		if ( ! is_array( $img_arr ) ) {
 			return '';
 		}
@@ -169,7 +169,7 @@ if ( ! function_exists( '_s_lazy_image' ) ) :
 		//Remove thumbnail and medium which are always first
 		unset( $sizes[0], $sizes[1] );
 
-		if ( is_admin() ) {
+		if ( is_admin() || $disable_lazy ) {
 			$src    = 'src="';
 			$srcset = 'srcset="';
 		} else {
@@ -186,7 +186,7 @@ if ( ! function_exists( '_s_lazy_image' ) ) :
 			$tag .= $src . $img_arr['url'] . '" ' . "\n";
 		}
 
-		if ( ! is_admin() ) {
+		if ( ! is_admin() || ! $disable_lazy ) {
 			//Add a blank image on pageload
 			$tag .= 'srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" ' . "\n";
 		}
