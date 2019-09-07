@@ -226,6 +226,7 @@ function _s_scripts() {
 	/**
 	 * Lazysizes unveil hooks
 	 * Uncomment to use lazy loading background images by adding a class of "lazyload" and data-bg="/path/to/image.jpg"
+	 Be sure to add '_s-lazy-uh' to the dependencies for '_s-lazy'
 	 */
 	//wp_enqueue_script( '_s-lazy-uh', get_template_directory_uri() . '/assets/js/plugins/unveilhooks/ls.unveilhooks.min.js', array(), null, false );
 
