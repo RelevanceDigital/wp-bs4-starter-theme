@@ -107,6 +107,27 @@ function _s_replace_image_lazy( $content ) {
 //add_filter('the_content', '_s_replace_image_lazy');
 
 /**
+ * Modify the main query
+ */
+/*
+function _s_modify_query( $query ) {
+
+	// Make sure we're on the frontend
+	if ( ! is_admin() && $query->is_main_query() ) {
+
+		//Check if it's a specific post type archive
+		if ( is_post_type_archive( 'custom_post_type' ) ) {
+
+			//Modify the main query to show all posts
+			$query->set('posts_per_page', -1 );
+
+		}
+	}
+}
+add_action( 'pre_get_posts', '_s_modify_query' );
+*/
+
+/**
  * Bootstrap comment form
  */
 function _s_comment_form( $args ) {
