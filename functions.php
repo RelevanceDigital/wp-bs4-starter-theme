@@ -234,7 +234,7 @@ function _s_scripts() {
 
 	wp_enqueue_script( '_s-lazy', get_template_directory_uri() . '/assets/js/lazysizes.min.js', array('_s-lazy-of'), null, false );
 
-	wp_enqueue_script( '_s-fa5', 'https://use.fontawesome.com/releases/v5.3.1/js/all.js', array(), null, true );
+	wp_enqueue_script( '_s-fa5', 'https://use.fontawesome.com/releases/v5.11.2/js/all.js', array(), null, true );
 
 	wp_enqueue_script( '_s-bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array('jquery'), '0', true );
 
