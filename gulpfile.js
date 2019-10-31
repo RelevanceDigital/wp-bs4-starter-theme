@@ -66,6 +66,7 @@ gulp.task('js', function() {
         'node_modules/lazysizes/**/*.min.js',
         'node_modules/slick-carousel/**/*.min.js',
         'js/*.js',
+        '!js/gutenberg.js',
     ])
         .pipe(uglify({compress: { unused: false } }))
         .on('error', gutil.log)

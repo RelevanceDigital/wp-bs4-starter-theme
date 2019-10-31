@@ -30,6 +30,7 @@ Getting Started
 3. Search for `Text Domain: _s` in `style.css`.
 4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
 5. Search for `_s-` to capture prefixed handles.
+6. Search for `'_s/block-filters'` in `js/gutenberg.js`
 
 
 Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
@@ -104,5 +105,5 @@ If you want to enable emoji scripts or oembed, this is the place to look.
 
 Any issues and pull requests for bugs are welcome.
 
-As I use this as a basis for clients websites, feature requests are unlikely to be included (unless they are awesome!). Feel free to fork and add your own features.
+As I use this as a basis for clients websites, feature requests are unlikely to be included. Feel free to fork and add your own features.
 

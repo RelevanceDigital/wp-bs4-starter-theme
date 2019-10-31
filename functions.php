@@ -257,6 +257,14 @@ function _s_load_editor_style() {
 add_action( 'after_setup_theme', '_s_load_editor_style' );
 
 /**
+ * Gutenberg script
+ */
+function _s_gutenberg_enqueue() {
+	wp_enqueue_script( '_s-gutenberg', get_template_directory_uri() . '/js/gutenberg.js' );
+}
+add_action( 'enqueue_block_editor_assets', '_s_gutenberg_enqueue' );
+
+/**
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';
