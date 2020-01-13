@@ -4,7 +4,7 @@
   "description": "A WordPress theme based on Underscores and Bootstrap 4",
   "main": "index.php",
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "browser-sync": "^2.24.4",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.1.0",
