@@ -105,5 +105,6 @@ If you want to enable emoji scripts or oembed, this is the place to look.
 
 Any issues and pull requests for bugs are welcome.
 
-As I use this as a basis for clients websites, feature requests are unlikely to be included. Feel free to fork and add your own features.
+## Standalone Theme
 
+If you want others to work on styling without needing to know WordPress, there is a standalone theme which uses the same structure at [https://github.com/RelevanceDigital/wp-bs4-starter-theme-standalone]()
