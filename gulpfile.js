@@ -12,7 +12,7 @@ const imageminJpegRecompress = require('imagemin-jpeg-recompress');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 
-gulp.task('install', function() {
+gulp.task('install', function(done) {
     gulp.src('node_modules/bootstrap/scss/_variables.scss')
         .pipe(rename('_variables-reference.scss'))
         .pipe(gulp.dest('scss'));
@@ -31,13 +31,15 @@ gulp.task('install', function() {
             prefix: "_"
         }))
         .pipe(gulp.dest('scss'));
+
+    done();
 });
 
 gulp.task('log', function() {
     gutil.log('== My Log Task ==')
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', function(done) {
     gulp.src('scss/**/*.scss')
         .pipe(sass({outputStyle: 'expanded'}))
         .pipe(autoprefixer({
@@ -59,9 +61,11 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('assets/css'))
         .pipe(browserSync.reload({stream:true}))
+
+    done();
 });
 
-gulp.task('js', function() {
+gulp.task('js', function(done) {
     gulp.src([
         'node_modules/lazysizes/**/*.min.js',
         'node_modules/slick-carousel/**/*.min.js',
@@ -72,11 +76,15 @@ gulp.task('js', function() {
         .on('error', gutil.log)
         .pipe(gulp.dest('assets/js'))
         .pipe(browserSync.reload({stream:true}))
+
+    done();
 });
 
-gulp.task('php', function() {
+gulp.task('php', function(done) {
     gulp.src('**/*.php')
         .pipe(browserSync.reload({stream:true}))
+
+    done();
 });
 
 gulp.task('imagesreduced', function () {
@@ -111,18 +119,23 @@ gulp.task('browser-sync', function() {
 */
 
 // Proxy
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function(done) {
     browserSync.init({
         proxy: "localhost:8080/wpbs4/"
     });
+    done();
 });
 
 
-gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['js']);
-    gulp.watch('scss/**/*.scss', ['sass']);
-    gulp.watch('**/*.php', ['php']);
-    gulp.watch('images/**/*.{png,jpeg,jpg,svg,gif}', ['imagesreduced'])
+gulp.task('watch', function(done) {
+    gulp.watch('js/*.js', gulp.parallel('js'));
+    gulp.watch('scss/**/*.scss', gulp.parallel('sass'));
+    gulp.watch('**/*.php', gulp.parallel('php'));
+    gulp.watch('images/**/*.{png,jpeg,jpg,svg,gif}', gulp.parallel('imagesreduced'));
+
+    done();
 });
 
-gulp.task('default', ['js', 'sass', 'imagesreduced', 'browser-sync', 'watch']);
+//gulp.task('default', ['js', 'sass', 'imagesreduced', 'browser-sync', 'watch']);
+
+gulp.task('default', gulp.parallel(['js', 'sass', 'imagesreduced', 'browser-sync', 'watch']));

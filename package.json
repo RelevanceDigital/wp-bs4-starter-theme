@@ -16,17 +16,17 @@
     "popper.js": "^1.14.1"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-util": "latest",
-    "gulp-sass": "latest",
-    "gulp-uglify": "latest",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^5.0.0",
     "gulp-connect": "latest",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-insert-lines": "latest",
     "gulp-rename": "latest",
     "gulp-replace": "latest",
-    "gulp-insert-lines": "latest",
+    "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-imagemin": "^4.1.0"
+    "gulp-uglify": "latest",
+    "gulp-util": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
