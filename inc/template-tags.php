@@ -147,7 +147,7 @@ function _s_pagination_links() {
 
 		echo paginate_links(array(
 			'base' => get_pagenum_link(1) . '%_%',
-			'format' => '/page/%#%',
+			'format' => 'page/%#%',
 			'type'      => 'list',
 			'current' => $current_page,
 			'total' => $total_pages,
