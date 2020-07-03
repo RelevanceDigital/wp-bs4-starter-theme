@@ -12,7 +12,7 @@ get_header();
 
 <div id="primary" class="content-area container">
     <div class="row">
-        <main id="main" class="site-main col-md-8">
+        <main tabindex="-1" id="main" class="site-main col-md-8">
 
 			<?php
 			while ( have_posts() ) :
