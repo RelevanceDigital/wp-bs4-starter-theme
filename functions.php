@@ -236,7 +236,7 @@ function _s_scripts() {
 
 	wp_enqueue_script( '_s-fa5', 'https://use.fontawesome.com/releases/v5.11.2/js/all.js', array(), null, true );
 
-	wp_enqueue_script( '_s-bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', array('jquery'), '0', true );
+	wp_enqueue_script( '_s-bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array('jquery'), '0', true );
 
 	wp_enqueue_script( '_s-script', get_template_directory_uri() . '/assets/js/site.js', array('jquery','_s-bootstrap'), '0', true );
 
