@@ -7,6 +7,24 @@
  * @package _s
  */
 
+/**
+ * Custom block category
+ */
+/*
+function _s_block_categories( $categories ) {
+	return array_merge(
+		array(
+			array(
+				'slug'  => 'my-custom-category',
+				'title' => __( 'My Custom Block Category', '_s' ),
+			),
+		),
+		$categories
+	);
+}
+add_filter( 'block_categories', '_s_block_categories', 10, 2 );
+*/
+
 function _s_register_acf_block_types() {
 
 	// Text widths
