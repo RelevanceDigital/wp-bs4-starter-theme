@@ -43,6 +43,6 @@ function _s_register_acf_block_types() {
 }
 
 // Check if function exists and hook into setup.
-if ( function_exists( '_s_acf_register_block_type' ) ) {
+if ( function_exists( 'acf_register_block_type' ) ) {
 	add_action( 'acf/init', '_s_register_acf_block_types' );
 }

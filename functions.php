@@ -299,7 +299,7 @@ require get_template_directory() . '/inc/wp_bootstrap_comments.php';
 /**
  * ACF Gutenberg blocks
  */
-if ( function_exists('get_field') ) {
+if ( function_exists('acf_register_block_type') ) {
 	require get_template_directory() . '/inc/acf-blocks.php';
 }
 
