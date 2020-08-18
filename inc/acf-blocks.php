@@ -7,14 +7,14 @@
  * @package _s
  */
 
-function register_acf_block_types() {
+function _s_register_acf_block_types() {
 
 	// Text widths
 	/*
 	acf_register_block_type( array(
 		'name'            => 'text_custom_width',
-		'title'           => __( 'Text Custom Width' ),
-		'description'     => __( 'Adjustable Width Text.' ),
+		'title'           => __( 'Text Custom Width', '_s' ),
+		'description'     => __( 'Adjustable Width Text.', '_s' ),
 		'render_template' => 'template-parts/blocks/text-custom-width.php',
 		'category'        => 'common',
 		'icon'            => 'editor-paragraph',
@@ -25,6 +25,6 @@ function register_acf_block_types() {
 }
 
 // Check if function exists and hook into setup.
-if ( function_exists( 'acf_register_block_type' ) ) {
-	add_action( 'acf/init', 'register_acf_block_types' );
+if ( function_exists( '_s_acf_register_block_type' ) ) {
+	add_action( 'acf/init', '_s_register_acf_block_types' );
 }
