@@ -8,7 +8,7 @@
     "browser-sync": "^2.24.4",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.1.0",
-    "lazysizes": "^4.0.2",
+    "lazysizes": "^5.2.2",
     "slick-carousel": "^1.8.1"
   },
   "peerDependencies": {
