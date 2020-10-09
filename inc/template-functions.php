@@ -128,6 +128,42 @@ add_action( 'pre_get_posts', '_s_modify_query' );
 */
 
 /**
+ * Add custom image sizes to the returned image array
+ * https://wordpress.stackexchange.com/questions/110060/retrieve-custom-image-sizes-from-media-uploader-javascript-object
+ *
+ * @param $response
+ * @param $attachment
+ * @param $meta
+ *
+ * @return mixed
+ */
+function _s_image_sizes_js( $response, $attachment, $meta ) {
+
+	$size_array = array( 'medium_large' );
+
+	foreach ( $size_array as $size ):
+
+		if ( isset( $meta['sizes'][ $size ] ) ) {
+			$attachment_url = wp_get_attachment_url( $attachment->ID );
+			$base_url       = str_replace( wp_basename( $attachment_url ), '', $attachment_url );
+			$size_meta      = $meta['sizes'][ $size ];
+
+			$response['sizes'][ $size ] = array(
+				'height'      => $size_meta['height'],
+				'width'       => $size_meta['width'],
+				'url'         => $base_url . $size_meta['file'],
+				'orientation' => $size_meta['height'] > $size_meta['width'] ? 'portrait' : 'landscape',
+			);
+		}
+
+	endforeach;
+
+	return $response;
+}
+
+add_filter( 'wp_prepare_attachment_for_js', '_s_image_sizes_js', 10, 3 );
+
+/**
  * Bootstrap comment form
  */
 function _s_comment_form( $args ) {
