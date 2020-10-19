@@ -274,20 +274,7 @@ add_filter( 'emoji_svg_url', '__return_false' );
 
 //Remove All Yoast HTML Comments
 //https://gist.github.com/paulcollett/4c81c4f6eb85334ba076
-function _s_go_yoast() {
-	if ( defined( 'WPSEO_VERSION' ) ) {
-		add_action( 'get_header', function () {
-			ob_start( function ( $o ) {
-				return preg_replace( '/\n?<.*?Yoast SEO plugin.*?>/mi', '', $o );
-			} );
-		} );
-		add_action( 'wp_head', function () {
-			ob_end_flush();
-		}, 999 );
-	}
-}
-
-add_action( 'plugins_loaded', '_s_go_yoast' );
+add_filter( 'wpseo_debug_markers', '__return_false' );
 
 //Move the yoast seo stuff to the bottom of the admin pages
 function _s_yoast_to_bottom() {
