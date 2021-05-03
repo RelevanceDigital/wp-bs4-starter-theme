@@ -59,7 +59,7 @@ $after_opening_body_code = get_theme_mod('_s_after_opening_body');
         <div class="nav-wrap">
             <div class="container">
                 <nav id="site-navigation" class="main-navigation navbar navbar-expand-lg navbar-light" role="navigation">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only"><?php esc_html_e( 'Toggle navigation', '_s' ); ?></span>
                     <button class="navbar-toggler brand align-self-end" type="button" data-toggle="collapse" data-target="#navbar-collapse-primary" aria-controls="navbar-collapse-primary" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
