@@ -1,3 +1,5 @@
+> :warning: **For an improved BootStrap V5 version go here**: [https://github.com/RelevanceDigital/wp-bs-starter-theme](https://github.com/RelevanceDigital/wp-bs-starter-theme)
+
 A WordPress Theme Based on _s and Bootstrap 4
 ===
 
